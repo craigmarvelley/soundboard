@@ -1,18 +1,30 @@
-function Soundboard()
-{
-    createjs.Sound.registerSound("sounds/paul.m4a", "paul");
-}
+function Soundboard() {}
 
 Soundboard.prototype.init = function ()
 {
-    var self = this;
+  var self = this,
+      sounds = [['paul', 'jim', 'rich', 'craig']],
+      html = '';
 
-    $('button').click(function () {
-        self.playSound($(this).data('name'));
+  $.each(sounds, function (key, row) {
+
+    html += '<div class="row">\n';
+
+    $.each(row, function (key, sound) {
+      createjs.Sound.registerSound("sounds/"+sound+".m4a", sound);
+
+      html += '<div class="col-md-3">\n'
+         + '  <button style="background: url(images/'+sound+'.jpg) no-repeat" data-name="'+sound+'"><span>'+sound.toUpperCase()+'</span></button>\n'
+         + '</div>\n';
     });
-}
+    
+    html += '</div>\n';
+  });
 
-Soundboard.prototype.playSound = function (name)
-{
-    var instance = createjs.Sound.play(name);
+  $('div#soundboard').append(html);
+
+  $('button').click(function () {
+    var name = $(this).data('name');
+    createjs.Sound.play(name);
+  });
 }
