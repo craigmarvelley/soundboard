@@ -6,6 +6,10 @@ h1, p {
   text-align: center;
 }
 
+#soundboard {
+  padding-bottom: 70px;
+}
+
 button {
   width: 150px;
   height: 150px;
