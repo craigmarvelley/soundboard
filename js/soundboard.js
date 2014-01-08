@@ -3,7 +3,7 @@ function Soundboard() {}
 Soundboard.prototype.init = function ()
 {
   var self = this,
-      sounds = [['paul', 'jim', 'rich', 'craig'],['james', 'aurelien', 'tidy', 'max'],['steff']],
+      sounds = [['paul', 'jim', 'rich', 'craig'],['james', 'aurelien', 'tidy', 'max'],['steff','dylan', 'saurabh', 'steve']],
       html = '';
 
   $.each(sounds, function (key, row) {
